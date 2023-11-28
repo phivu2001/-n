@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model DTO.Warehouse.InWarehouseDTO
+<div class="account-management">
+    @Html.Partial("_breadcrumb", new Dictionary<string, string>
+        { { "Home", "Home" }, { "InWarehouseManagement", "Quản lý nhập kho" }, { "C", "Edit" } }, new ViewDataDictionary(ViewData) { { "mHref", Url.Action("Index", "InWarehouseManagement", new { area = "Admin" }) }, { "mShowButton", "false" } })
+
+    @using (Html.BeginForm("Edit", "InWarehouseManagement", FormMethod.Post, new { @id = "form-create", @class = "form-horizontal needs-validation", @enctype = "multipart/form-data" }))
+    {
+        @Html.Partial("_Form", Model)
+    }
+</div>

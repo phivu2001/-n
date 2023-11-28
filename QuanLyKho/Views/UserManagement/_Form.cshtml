@@ -1,0 +1,142 @@
+﻿@{
+    Layout = null;
+}
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+@model DTO.User.UserDTO
+<div class="row form-horizontal form-label-left" style="margin-bottom:15px;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <fieldset style="width: 100%">
+                    <legend>
+                        THÔNG TIN CHUNG
+                    </legend>
+                    <div class="first-step-group-criteria" style="padding-top:10px; margin-bottom: 10px;">
+                        <div class="form-row">
+                            @*<div class="col-md-4 mb-3 text-center">
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        @if (string.IsNullOrEmpty(Model.Avartar))
+                                        {
+                                            <img src="~/Images/DefaultUser.jpg" height="300" width="300" style="box-shadow: 0px 0px 5px #676363; cursor:pointer" class="img-circle" id="btn-change-image" />
+                                        }
+                                        else
+                                        {
+                                            <img src="@Url.Content(Model.Avartar)" height="300" width="300" style="box-shadow: 0px 0px 5px #676363; cursor:pointer" class="img-circle" id="btn-change-image" />
+                                        }
+                                        @Html.HiddenFor(model => model.Avartar)
+                                        @Html.HiddenFor(model => model.SecurityStamp)
+                                        @Html.TextBoxFor(model => model.PictureUpload, new { @type = "file", @class = "hidden", @accept = ".png, .jpg, .jpeg" })
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="col-md-12 mb-3">
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>Tên</label>
+                                        @Html.HiddenFor(model => model.Id)
+                                        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", placeholder = "Tên đầy đủ", @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.FullName, null, new { @class = "label label-danger" })
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label>Email</label>
+                                        @if (!string.IsNullOrEmpty(Model.Email))
+                                        {
+                                            @Html.HiddenFor(model => model.Email)
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email", @autocomplete = "off" })
+                                        }
+                                        else
+                                        {
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email", @autocomplete = "off" })
+                                        }
+                                        @Html.ValidationMessageFor(model => model.Email, null, new { @class = "label label-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>Tên đăng nhập</label>
+                                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Tên đăng nhập", @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "label label-danger" })
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label>Mật khẩu</label>
+                                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Mật khẩu", @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.Password, null, new { @class = "label label-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>Địa chỉ</label>
+                                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control", placeholder = "Địa chỉ", @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.Address, null, new { @class = "label label-danger" })
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label>Số điện thoại</label>
+                                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", placeholder = "Số điện thoại", @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.Phone, null, new { @class = "label label-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>
+                                            Ngày sinh
+                                        </label>
+                                        <div class='input-group date datetimepicker3' data-date-format="dd-mm-yyyy">
+                                            @Html.TextBoxFor(model => model.BirthDay, new { @class = "form-control input-group-addon", placeholder = "Date of birth" })
+
+                                            <div class="input-group-append input-group-addon">
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.BirthDay, null, new { @class = "label label-danger" })
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label>Vai trò</label>
+                                        @Html.DropDownListFor(model => model.Role,
+                                                        new SelectList(EnumCommon.ERole.Admin.ToSelectListByDes(), "Value", "Text", Model.Role), null,
+                                                        new
+                                                        {
+                                                            @class = "form-control cc-select2-gender custom-select",
+                                                            @style = "width:100%;",
+                                                            @id = "RoleId"
+                                                        })
+                                        @Html.ValidationMessageFor(model => model.Role, null, new { @class = "label label-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="text-right">
+                    <a href="@Url.Action("Index","UserManagement")" class="btn btn-outline-secondary">Hủy</a>
+                    <button class="btn btn-outline-primary" type="submit">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btn-change-image").on("click", function () {
+            $("#PictureUpload").click();
+        });
+
+        $("#PictureUpload").on("change", function () {
+            PreviewImage(this, 'btn-change-image')
+        })
+
+        $('[id=Password]').val('@Model.Password')
+    })
+    function PreviewImage(e, previewElementID) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(e.files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById(previewElementID).src = oFREvent.target.result;
+        };
+    };
+</script>

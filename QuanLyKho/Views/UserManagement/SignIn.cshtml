@@ -1,0 +1,164 @@
+﻿
+@{
+    Layout = null;
+}
+@model DTO.User.LoginDTO
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Content/assets/images/favicon.png")">
+    <title>MANAGEMENT SYSTEM SIGNING </title>
+
+    <!-- page css -->
+    <link href="@Url.Content("~/Content/assets/node_modules/toast/jquery.toast.css")" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/Content/dist/css/style.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/commons.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Content/assets/node_modules/jquery/jquery-3.2.1.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/node_modules/toast/jquery.toast.js")"></script>
+    <style type="text/css">
+        .form-material .form-control, .form-material .form-control.focus, .form-material .form-control:focus {
+            background-image: none;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+        }
+
+        .form-material .form-control {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body class="skin-default card-no-border">
+    <div class="card" style="margin-bottom:0;">
+        <div class="card-body" style="padding:0;">
+            <div class="row">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4" style="margin-top:10% !important;">
+                    <div class="form-row">
+                        <h3 style="font-weight:500; font-size:40px; font-family:initial; text-align: center; "> MANAGEMENT SYSTEM SIGNING </h3>
+                    </div>
+                    <div class="form-row">
+                        <h5 style="margin-left:34%; font-family:initial">Login Into Your Account</h5>
+                    </div>
+                    @using (Html.BeginForm("SignIn", "UserManagement", FormMethod.Post, new { @id = "form-create", @class = "form-horizontal form-material needs-validation", @enctype = "multipart/form-data" }))
+                    {
+                        <div class="form-group" style="margin-top:25px;">
+                            <div class="col-xs-12">
+                                <label style="opacity:0.4;font-size:13px;">UserName*</label> <br />
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Username", @autocomplete = "off", @style = "width: 95%" })
+                                @Html.ValidationMessageFor(model => model.Email, null, new { @id = "email", @class = "label label-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:5px;">
+                            <div class="col-xs-12">
+                                <label style="opacity:0.4;font-size:13px;">Password*</label> <br />
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "************", @autocomplete = "off", @style = "width: 95%" })
+                                @Html.ValidationMessageFor(model => model.Password, null, new { @id = "password", @class = "label label-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                    <div class="col-md-12">
+                        <div class="d-flex no-block align-items-center" style="width:95%">
+                            <div class="custom-control custom-checkbox" style="padding-left: 1rem">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" />
+                                <label class="custom-control-label" for="customCheck1" style="font-size:11px; line-height:21px;">Keep me signed in</label>
+                            </div>
+                            <div class="ml-auto" style="font-size:11px;">
+                                <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fas fa-lock m-r-5"></i> Forgot password ?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit" style="width:50%; background:#000; margin-left:25%;border-color:#000;">Login</button>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="form-row" style="bottom:10px; position:absolute;left:35%;">
+                        <h5 style="font-size:12px; font-weight:300; opacity:0.5;">2023 Copyrights &copy; THA</h5>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Elite admin</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    @if (TempData["Timeout"] != null)
+    {
+        <script type="text/javascript">
+            $.toast({
+                text: '@TempData["Timeout"].ToString()',
+                //heading: 'Lỗi',
+                icon: 'error', // 'error','warning','success','info'
+                showHideTransition: 'fade',
+                allowToastClose: true,
+                hideAfter: 5000,
+                stack: 10,
+                position: 'top-right',
+                textAlign: 'left',
+                loader: true,
+                loaderBg: '#9EC600',
+            });
+        </script>
+    }
+
+    @if (TempData["LockLogin"] != null)
+    {
+        <script type="text/javascript">
+            $.toast({
+                text: '@TempData["LockLogin"].ToString()',
+                //heading: 'Lỗi',
+                icon: 'error', // 'error','warning','success','info'
+                showHideTransition: 'fade',
+                allowToastClose: true,
+                hideAfter: 5000,
+                stack: 10,
+                position: 'top-right',
+                textAlign: 'left',
+                loader: true,
+                loaderBg: '#9EC600',
+            });
+        </script>
+    }
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="@Url.Content("~/Content/assets/node_modules/popper/popper.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/node_modules/bootstrap/dist/js/bootstrap.min.js")"></script>
+    <!--Custom JavaScript -->
+    <script type="text/javascript">
+        $(function () {
+            $(".preloader").fadeOut();
+            var height = $(document).height();
+            $(".img-layout-login").height(height);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+@model DTO.Warehouse.InWarehousDetailDTO
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+
+<div class="form-row step" id="step-@Model.Offset">
+    <div class="col-md-3 mb-3">
+        <label>Vật tư</label>
+        @if (Model.Stocks != null)
+        {
+            for (int i = 0; i < Model.Stocks.Count; i++)
+            {
+                @Html.HiddenFor(m => m.Stocks[i].Id, new { Name = string.Format("OutWarehousDetails[{0}].Stocks[{1}].Id", Model.Offset, i) })
+                @Html.HiddenFor(m => m.Stocks[i].Name, new { Name = string.Format("OutWarehousDetails[{0}].Stocks[{1}].Name", Model.Offset, i) })
+            }
+        }
+        @Html.DropDownListFor(model => model.StockId,
+            new SelectList(Model.Stocks, "Id", "Name", Model.StockId), null,
+            new
+            {
+                @class = "form-control cc-select2-gender custom-select",
+                @style = "width:100%;",
+                Name = string.Format("InWarehousDetails[{0}].StockId", Model.Offset)
+            })
+        @Html.ValidationMessage(string.Format("InWarehousDetails[{0}].StockId", Model.Offset), null, new { @class = "label label-danger" })
+    </div>
+    <div class="col-md-3 mb-3">
+        <label>Số lượng</label>
+        @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control", @placeholder = "So luong", @type = "number", @autocomplete = "off", Name = string.Format("InWarehousDetails[{0}].Quantity", Model.Offset), @id = "name-" + Model.Offset + "" })
+        @Html.ValidationMessage(string.Format("InWarehousDetails[{0}].Quantity", Model.Offset), null, new { @class = "label label-danger", @id = "validation-name-" + Model.Offset + "" })
+    </div>
+    <div class="col-md-3 mb-3">
+        <label>Trạng thái</label>
+        @Html.DropDownListFor(model => model.Status,
+            new SelectList(EnumCommon.EStockStatus.Good.ToSelectListByDes(), "Value", "Text", Model.Status), null,
+            new
+            {
+                @class = "form-control cc-select2-gender custom-select",
+                @style = "width:100%;",
+                Name = string.Format("InWarehousDetails[{0}].Status", Model.Offset)
+            })
+        @Html.ValidationMessage(string.Format("InWarehousDetails[{0}].Status", Model.Offset), null, new { @class = "label label-danger" })
+    </div>
+    @if (Model != null)
+    {
+        <div class="col-md-3 mb-3">
+            <button class="btn btn-success" id="btn-@Model.Offset" onclick="removeStep(@Model.Offset)" type="button" style="margin-left:17.5% !important">Xóa</button>
+        </div>
+    }
+</div>
+

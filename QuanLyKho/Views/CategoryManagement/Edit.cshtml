@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model DTO.Category.CategoryDTO
+<div class="account-management">
+    @Html.Partial("_breadcrumb", new Dictionary<string, string>
+        { { "Home", "Home" }, { "CategoryManagement", "Quản lý nhóm vật tư" }, { "C", "Edit" } }, new ViewDataDictionary(ViewData) { { "mHref", Url.Action("Index", "CategoryManagement", new { area = "Admin" }) }, { "mShowButton", "false" } })
+
+    @using (Html.BeginForm("Edit", "CategoryManagement", FormMethod.Post, new { @id = "form-create", @class = "form-horizontal needs-validation", @enctype = "multipart/form-data" }))
+    {
+        @Html.Partial("_Form", Model)
+    }
+</div>

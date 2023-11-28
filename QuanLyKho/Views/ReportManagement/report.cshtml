@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+    //var UserInfo = UserServices.GetInfoCustomer();
+}
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+@model List<DTO.Stock.StockDTO>
+<div class="account-management">
+    @Html.ActionLink("Danh sách vật tư PDF", "PrintPartialViewToPdf", new { })
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive m-t-40">
+                        <table id="config-table" class="table display table-bordered table-striped no-wrap">
+                            <thead>
+                                <tr style="text-align: left !important">
+                                    <th style="max-width:20px !important; width: 5%">No.</th>
+                                    <th width="45%">Mã vật tư</th>
+                                    <th width="25%">Tên vật tư</th>
+                                    <th width="5%">Giá</th>
+                                    <th width="5%">Số lượng</th>
+                                    <th width="20%">Nhóm vật tư</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    var No = 0;
+                                    foreach (var item in Model)
+                                    {
+                                        No = No + 1;
+                                        <tr style="text-align: left !important">
+                                            <td>@No</td>
+                                            <td>@item.Code</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Price</td>
+                                            <td>@item.Qty</td>
+                                            <td>@item.CategoryName</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

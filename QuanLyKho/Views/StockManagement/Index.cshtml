@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    //var UserInfo = UserServices.GetInfoCustomer();
+}
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+@model List<DTO.Stock.StockDTO>
+<div class="account-management">
+    @Html.Partial("_breadcrumb", new Dictionary<string, string>
+       { { "Home", "Home" }, { "StockManagement", "Quản lý vật tư" } }, new ViewDataDictionary(ViewData) { { "mHref", Url.Action("New", "StockManagement") }, { "mShowButton", "true" } })
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive m-t-40">
+                        <table id="config-table" class="table display table-bordered table-striped no-wrap">
+                            <thead>
+                                <tr>
+                                    <th style="max-width:20px !important;">No.</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Mã</th>
+                                    <th>Vật tưu</th>
+                                    <th>Giá</th>
+                                    <th>Nhóm vật tưu</th>
+                                    <th style="width:5%;">Tùy chỉnh</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    var No = 0;
+                                    foreach (var item in Model)
+                                    {
+                                        No = No + 1;
+                                        <tr>
+                                            <td>@No</td>
+                                            <td><img src="@item.ImageURL" style="width: 75px ;height: 75px" /></td>
+                                            <td>@item.Code</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Price</td>
+                                            <td>@item.CategoryName</td>
+                                            <td>
+                                                <div class="btn-group btn-group-2 pull-right">
+                                                    <a href="@Url.Action("Edit","StockManagement", new {Id = item.Id, Code = item.Code})" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Cập nhật thông tin sản phẩm">
+                                                        <i class="fas fa-fw fa-pencil-alt text-success"></i> &nbsp;
+                                                    </a>
+                                                    <a href="javascript:void(0)" onclick="ConfirmSwalMessage('Bạn Có Chắc Muốn Xoá ','', 'Đồng Ý', 'Huỷ','@Url.Action("Destroy", "StockManagement", new { Id = item.Id })')" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Xoá thông tin user">
+                                                        <i class="fa fa-fw fa-trash text-danger"></i> &nbsp;
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#config-table').DataTable({
+        responsive: true
+    });
+</script>

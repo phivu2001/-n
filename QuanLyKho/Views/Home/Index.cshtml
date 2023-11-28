@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model List<DTO.User.UserDTO>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<br />
+
+<fieldset>
+    <legend>Thông tin danh sách hàng hóa nhập trong tháng</legend>
+    <canvas id="myChart" style="width:70%; max-width:80%"></canvas>
+</fieldset>
+
+<script>
+    var data = @Html.Raw(Json.Encode(Model))
+    var xValues = [];
+    var yValues = [];
+    if (data != null && data.length > 0) {
+        for (var i = 0; i < data.length; i++) {
+            xValues.push(data[i].FullName)
+            yValues.push(data[i].Total)
+        }
+    }
+    var barColors = ["red", "green", "blue", "orange", "brown"];
+
+    new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "World Wine Production 2018"
+            }
+        }
+    });
+</script>
+

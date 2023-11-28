@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="row page-titles">
+    <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+            @if (Model != null)
+            {
+                var ListBreadCrumb = Model as Dictionary<string, string>;
+                var Count = ListBreadCrumb.Count;
+                var LastIndex = 0;
+                foreach (KeyValuePair<string, string> entry in Model)
+                {
+                    LastIndex = LastIndex + 1;
+                    if (LastIndex == Count)
+                    {
+                        <li class="breadcrumb-item active">@entry.Value</li>
+                    }
+                    else
+                    {
+                        <li class="breadcrumb-item"><a href="@Url.Action("Index", entry.Key)">@entry.Value</a></li>
+                    }
+
+                }
+            }
+        </ol>
+    </div>
+    <div class="col-md-5 align-self-center text-right">
+        @if (ViewData["mShowButton"].ToString() == "true")
+        {
+            <div class="d-flex justify-content-end align-items-center">
+                <a href="@ViewData["mHref"]" class="btn btn-info d-none d-lg-block m-l-15 " id="id-add-new">
+                    <i class="fa fa-plus-circle"></i> Add new
+                </a>
+            </div>
+        }
+
+    </div>
+</div>

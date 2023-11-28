@@ -1,0 +1,1713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{989432E7-4AAE-40CE-B186-9CF5B4B3C3C2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuanLyCTDT</RootNamespace>
+    <AssemblyName>QuanLyCTDT</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44339</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Commons\EnumCommon.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoryManagementController.cs" />
+    <Compile Include="Controllers\CustomerManagementController.cs" />
+    <Compile Include="Controllers\InWarehouseManagementController.cs" />
+    <Compile Include="Controllers\OutWarehouseManagementController.cs" />
+    <Compile Include="Controllers\StockManagementController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportManagementController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
+    <Compile Include="Controllers\VendorManagementController.cs" />
+    <Compile Include="Extentions\ExtensionClass.cs" />
+    <Compile Include="Extentions\ImageHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\images\big\img1.jpg" />
+    <Content Include="Content\assets\images\big\img2.jpg" />
+    <Content Include="Content\assets\images\big\img3.jpg" />
+    <Content Include="Content\assets\images\custom-select.png" />
+    <Content Include="Content\assets\images\favicon.png" />
+    <Content Include="Content\assets\images\logo-icon.png" />
+    <Content Include="Content\assets\images\logo-light-icon.png" />
+    <Content Include="Content\assets\images\logo-light-text.png" />
+    <Content Include="Content\assets\images\logo-text.png" />
+    <Content Include="Content\assets\images\users\1.jpg" />
+    <Content Include="Content\assets\images\users\2.jpg" />
+    <Content Include="Content\assets\images\users\3.jpg" />
+    <Content Include="Content\assets\images\users\4.jpg" />
+    <Content Include="Content\assets\images\users\5.jpg" />
+    <Content Include="Content\assets\images\users\6.jpg" />
+    <Content Include="Content\assets\images\users\7.jpg" />
+    <Content Include="Content\assets\images\users\8.jpg" />
+    <Content Include="Content\assets\node_modules\bootstrap-treeview-master\dist\bootstrap-treeview-init.js" />
+    <Content Include="Content\assets\node_modules\bootstrap-treeview-master\dist\bootstrap-treeview.min.js" />
+    <Content Include="Content\assets\node_modules\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\assets\node_modules\datatables.net-bs4\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\assets\node_modules\datatables.net-bs4\css\responsive.dataTables.min.css" />
+    <Content Include="Content\assets\node_modules\datatables.net-bs4\js\dataTables.responsive.min.js" />
+    <Content Include="Content\assets\node_modules\datatables.net\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Content\assets\node_modules\datatables.net\js\jquery.dataTables.min.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap-theme.css" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap-theme.min.css" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap.css" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap.min.css" />
+    <Content Include="Content\assets\node_modules\datetime-picker\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\bootstrap.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\bootstrap.min.js" />
+    <Content Include="App_Browsers\qt.browser" />
+    <None Include="Content\assets\node_modules\datetime-picker\js\jquery-1.9.0.intellisense.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\jquery-1.9.0.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\jquery-1.9.0.min.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\moment-with-locales.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\moment-with-locales.min.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\moment.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\moment.min.js" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\npm.js" />
+    <Content Include="Content\assets\node_modules\dropify\dist\css\dropify.min.css" />
+    <Content Include="Content\assets\node_modules\dropify\dist\js\dropify.min.js" />
+    <Content Include="Content\assets\node_modules\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="Content\assets\node_modules\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\assets\node_modules\morrisjs\morris.css" />
+    <Content Include="Content\assets\node_modules\morrisjs\morris.min.js" />
+    <Content Include="Content\assets\node_modules\peity\jquery.peity.init.js" />
+    <Content Include="Content\assets\node_modules\peity\jquery.peity.min.js" />
+    <Content Include="Content\assets\node_modules\popper\popper.min.js" />
+    <Content Include="Content\assets\node_modules\raphael\raphael-min.js" />
+    <Content Include="Content\assets\node_modules\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Content\assets\node_modules\sticky-kit-master\dist\sticky-kit.min.js" />
+    <Content Include="Content\assets\node_modules\sweetalert2\dist\sweetalert2.all.min.js" />
+    <Content Include="Content\assets\node_modules\sweetalert2\dist\sweetalert2.min.css" />
+    <Content Include="Content\assets\node_modules\sweetalert2\sweet-alert.init.js" />
+    <Content Include="Content\assets\node_modules\toast-master\css\jquery.toast.css" />
+    <Content Include="Content\assets\node_modules\toast-master\js\jquery.toast.js" />
+    <Content Include="Content\assets\node_modules\toast\jquery.toast.css" />
+    <Content Include="Content\assets\node_modules\toast\jquery.toast.js" />
+    <Content Include="Content\assets\node_modules\TouchSpin\jquery.bootstrap-touchspin.css" />
+    <Content Include="Content\assets\node_modules\TouchSpin\jquery.bootstrap-touchspin.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Chart.css" />
+    <Content Include="Content\Chart.min.css" />
+    <Content Include="Content\commons.css" />
+    <Content Include="Content\commons.js" />
+    <Content Include="Content\dist\css\pages\dashboard1.css" />
+    <Content Include="Content\dist\css\select2.min.css" />
+    <Content Include="Content\dist\css\style.min.css" />
+    <Content Include="Content\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\dist\js\custom.min.js" />
+    <Content Include="Content\dist\js\dashboard1.js" />
+    <Content Include="Content\dist\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\dist\js\select2.full.js" />
+    <Content Include="Content\dist\js\sidebarmenu.js" />
+    <Content Include="Content\dist\js\waves.js" />
+    <Content Include="Content\lib.client\css\css.css" />
+    <Content Include="Content\lib.client\css\style.css" />
+    <Content Include="Content\lib.client\css\vendors.css" />
+    <Content Include="Content\lib.client\js\active.js" />
+    <Content Include="Content\lib.client\js\vendors.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\banner-big2.jpg" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\DefaultUser.jpg" />
+    <Content Include="Images\icon\en-gb.png" />
+    <Content Include="Images\icon\free-shipping.png" />
+    <Content Include="Images\icon\free_shipping.png" />
+    <Content Include="Images\icon\goi.png" />
+    <Content Include="Images\icon\green-discount-label.png" />
+    <Content Include="Images\icon\guarantee.png" />
+    <Content Include="Images\icon\icon-header-phone-green.png" />
+    <Content Include="Images\icon\moneyback.png" />
+    <Content Include="Images\icon\payment_secure.png" />
+    <Content Include="Images\icon\return.png" />
+    <Content Include="Images\icon\support247.png" />
+    <Content Include="Images\icon\vi-vi.png" />
+    <Content Include="Images\logo\logoschool.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="LibCKEditor\ckeditor\adapters\jquery.js" />
+    <Content Include="LibCKEditor\ckeditor\build-config.js" />
+    <Content Include="LibCKEditor\ckeditor\ckeditor.js" />
+    <Content Include="LibCKEditor\ckeditor\config.js" />
+    <Content Include="LibCKEditor\ckeditor\contents.css" />
+    <Content Include="LibCKEditor\ckeditor\lang\af.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ar.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\bg.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\bn.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\bs.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ca.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\cs.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\cy.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\da.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\de.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\el.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\en-au.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\en-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\en-gb.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\en.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\eo.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\es.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\et.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\eu.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\fa.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\fi.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\fo.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\fr-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\fr.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\gl.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\gu.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\he.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\hi.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\hr.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\hu.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\id.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\is.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\it.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ja.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ka.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\km.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ko.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ku.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\lt.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\lv.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\mk.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\mn.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ms.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\nb.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\nl.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\no.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\pl.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\pt.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ro.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ru.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\si.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\sk.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\sl.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\sq.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\sr-latn.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\sr.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\sv.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\th.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\tr.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\ug.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\uk.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\vi.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckeditor\lang\zh.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="LibCKEditor\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\autolink\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\dev\clipboard.html" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\dev\console.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\dev\dnd.html" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\copy-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\copy.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\cut-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\cut.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\hidpi\copy-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\hidpi\copy.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\hidpi\cut-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\hidpi\cut.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\hidpi\paste-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\hidpi\paste.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\paste-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\icons\paste.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\af.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ar.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\az.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\bg.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\bn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\bs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\cs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\cy.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\da.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\de-ch.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\de.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\el.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\en-au.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\en-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\en-gb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\en.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\eo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\es-mx.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\es.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\et.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\eu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\fa.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\fi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\fo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\fr-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\fr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\gl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\gu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\he.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\hi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\hr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\hu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\id.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\is.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\it.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ja.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ka.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\km.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ko.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ku.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\lt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\lv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\mk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\mn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ms.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\nb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\nl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\no.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\oc.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\pl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\pt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ro.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ru.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\si.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\sk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\sl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\sq.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\sr-latn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\sr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\sv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\th.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\tr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\tt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\ug.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\uk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\vi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\lang\zh.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\clipboard\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\icons\bgcolor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\icons\hidpi\bgcolor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\icons\hidpi\textcolor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\icons\textcolor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\af.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ar.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\az.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\bg.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\bn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\bs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\cs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\cy.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\da.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\de-ch.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\de.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\el.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\en-au.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\en-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\en-gb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\en.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\eo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\es-mx.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\es.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\et.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\eu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\fa.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\fi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\fo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\fr-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\fr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\gl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\gu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\he.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\hi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\hr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\hu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\id.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\is.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\it.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ja.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ka.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\km.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ko.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ku.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\lt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\lv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\mk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\mn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ms.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\nb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\nl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\no.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\oc.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\pl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\pt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ro.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ru.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\si.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\sk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\sl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\sq.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\sr-latn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\sr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\sv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\th.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\tr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\tt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\ug.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\uk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\vi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\lang\zh.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colorbutton\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\dialogs\colordialog.css" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\af.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ar.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\az.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\bg.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\bn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\bs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\cs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\cy.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\da.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\de-ch.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\de.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\el.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\en-au.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\en-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\en-gb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\en.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\eo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\es-mx.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\es.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\et.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\eu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\fa.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\fi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\fo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\fr-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\fr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\gl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\gu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\he.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\hi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\hr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\hu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\id.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\is.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\it.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ja.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ka.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\km.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ko.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ku.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\lt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\lv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\mk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\mn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ms.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\nb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\nl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\no.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\oc.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\pl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\pt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ro.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ru.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\si.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\sk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\sl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\sq.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\sr-latn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\sr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\sv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\th.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\tr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\tt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\ug.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\uk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\vi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\lang\zh.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\colordialog\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\af.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ar.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\az.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\bg.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\bn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\bs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\cs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\cy.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\da.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\de-ch.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\de.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\el.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\en-au.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\en-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\en-gb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\en.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\eo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\es-mx.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\es.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\et.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\eu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\fa.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\fi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\fo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\fr-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\fr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\gl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\gu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\he.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\hi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\hr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\hu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\id.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\is.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\it.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ja.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ka.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\km.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ko.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ku.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\lt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\lv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\mk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\mn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ms.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\nb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\nl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\no.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\oc.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\pl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\pt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ro.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ru.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\si.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\sk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\sl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\sq.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\sr-latn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\sr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\sv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\th.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\tr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\tt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\ug.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\uk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\vi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\lang\zh.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\font\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\icons.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\hidpi\justifyblock.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\hidpi\justifycenter.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\hidpi\justifyleft.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\hidpi\justifyright.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\justifyblock.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\justifycenter.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\justifyleft.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\icons\justifyright.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\justify\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\panelbutton\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="LibCKEditor\ckeditor\plugins\SimpleLink\dialogs\simplelink.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\SimpleLink\icons\simplelink.png" />
+    <Content Include="LibCKEditor\ckeditor\plugins\SimpleLink\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="LibCKEditor\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\textmatch\plugin.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\dialogs\tmp.html" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="LibCKEditor\ckeditor\samples\ajax.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\api.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\appendto.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\assets\inlineall\logo.png" />
+    <Content Include="LibCKEditor\ckeditor\samples\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="LibCKEditor\ckeditor\samples\assets\posteddata.php" />
+    <Content Include="LibCKEditor\ckeditor\samples\assets\sample.css" />
+    <Content Include="LibCKEditor\ckeditor\samples\assets\sample.jpg" />
+    <Content Include="LibCKEditor\ckeditor\samples\assets\uilanguages\languages.js" />
+    <Content Include="LibCKEditor\ckeditor\samples\datafiltering.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\divreplace.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\index.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\inlineall.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\inlinebycode.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\inlinetextarea.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\jquery.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\dialog\assets\my_dialog.js" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\dialog\dialog.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\enterkey\enterkey.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\htmlwriter\outputforflash.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\htmlwriter\outputhtml.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\magicline\magicline.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\toolbar\toolbar.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\wysiwygarea\fullpage.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\readonly.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\replacebyclass.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\replacebycode.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\sample.css" />
+    <Content Include="LibCKEditor\ckeditor\samples\sample.js" />
+    <Content Include="LibCKEditor\ckeditor\samples\sample_posteddata.php" />
+    <Content Include="LibCKEditor\ckeditor\samples\tabindex.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\uicolor.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\uilanguages.html" />
+    <Content Include="LibCKEditor\ckeditor\samples\xhtmlstyle.html" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\colorpanel.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\dialog.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\dialog_ie.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\dialog_ie7.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\dialog_ie8.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\dialog_iequirks.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\editor.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\editor_gecko.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\editor_ie.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\editor_ie7.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\editor_ie8.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\editor_iequirks.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\elementspath.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\about.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\anchor-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\anchor.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\bgcolor.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\bidiltr.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\bidirtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\blockquote.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\bold.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\bulletedlist-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\bulletedlist.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\button.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\checkbox.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\copy-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\copy.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\creatediv.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\cut-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\cut.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\docprops-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\docprops.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\find-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\find.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\flash.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\form.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\hiddenfield.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\horizontalrule.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\iframe.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\image.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\imagebutton.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\indent-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\indent.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\italic.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\justifyblock.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\justifycenter.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\justifyleft.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\justifyright.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\link.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\maximize.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\newpage-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\newpage.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\numberedlist-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\numberedlist.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\outdent-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\outdent.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\pagebreak-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\pagebreak.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\paste-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\paste.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\pastefromword-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\pastefromword.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\pastetext-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\pastetext.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\placeholder.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\preview-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\preview.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\print.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\radio.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\redo-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\redo.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\removeformat.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\replace.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\save.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\scayt.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\select-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\select.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\selectall.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\showblocks-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\showblocks.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\smiley.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\source-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\source.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\specialchar.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\spellchecker.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\strike.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\subscript.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\superscript.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\table.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\templates-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\templates.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\textarea-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\textarea.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\textcolor.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\textfield-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\textfield.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\underline.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\undo-rtl.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\undo.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\icons\unlink.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\arrow.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\close.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\hidpi\close.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\hidpi\lock-open.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\hidpi\lock.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\hidpi\refresh.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\lock-open.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\lock.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\refresh.png" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\images\spinner.gif" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\mainui.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\menu.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\notification.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\panel.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\presets.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\reset.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\richcombo.css" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\skin.js" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\toolbar.css" />
+    <Content Include="LibCKEditor\ckeditor\styles.js" />
+    <Content Include="LibCKEditor\ckfinder\changelog.txt" />
+    <Content Include="LibCKEditor\ckfinder\ckfinder.html" />
+    <Content Include="LibCKEditor\ckfinder\ckfinder.js" />
+    <Content Include="LibCKEditor\ckfinder\ckfinder_v1.js" />
+    <Content Include="LibCKEditor\ckfinder\config.ascx" />
+    <Content Include="LibCKEditor\ckfinder\config.js" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\connector.aspx" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\bg.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\ca.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\cs.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\cy.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\da.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\de.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\el.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\en.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\eo.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\es-mx.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\es.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\et.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\fa.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\fi.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\fr.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\gu.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\he.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\hi.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\hr.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\hu.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\it.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\ja.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\lt.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\lv.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\nb.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\nl.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\nn.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\no.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\pl.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\pt-br.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\ro.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\ru.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\sk.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\sl.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\sr.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\sv.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\tr.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\vi.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\zh-cn.xml" />
+    <Content Include="LibCKEditor\ckfinder\core\connector\aspx\lang\zh-tw.xml" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\001.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\002.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\003.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\004.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\005.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\006.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\007.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\008.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\009.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\010.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\011.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\012.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\013.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\014.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\015.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\header.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\license.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\suggestions.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\files\toc.html" />
+    <Content Include="LibCKEditor\ckfinder\help\cs\index.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\001.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\002.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\003.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\004.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\005.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\006.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\007.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\008.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\009.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\010.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\011.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\012.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\013.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\014.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\015.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\header.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\license.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\suggestions.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\files\toc.html" />
+    <Content Include="LibCKEditor\ckfinder\help\en\index.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\001.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\002.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\003.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\004.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\005.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\006.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\007.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\008.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\009.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\010.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\011.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\012.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\013.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\header.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\001.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\002.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\003.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\004.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\005.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\006.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\007.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\008.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\009.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\010.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\011.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\012.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\013.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\014.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\015.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\016.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\017.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\018.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\019.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\images\020.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\license.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\suggestions.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\files\toc.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es-mx\index.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\001.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\002.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\003.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\004.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\005.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\006.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\007.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\008.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\009.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\010.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\011.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\012.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\013.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\header.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\001.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\002.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\003.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\004.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\005.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\006.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\007.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\008.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\009.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\010.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\011.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\012.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\013.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\014.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\015.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\016.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\017.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\018.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\019.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\images\020.png" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\license.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\suggestions.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\files\toc.html" />
+    <Content Include="LibCKEditor\ckfinder\help\es\index.html" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\002.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\003.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_basket_clear.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_basket_drag.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_basket_empty.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_basket_file_menu.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_basket_remove.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_already_exists.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_copied.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_delete.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_display_01.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_display_02.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_display_03.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_display_04.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_drag_copy.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_drag_move.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_menu.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_moved.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_pane.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_rename.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_resize.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_resize_both.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_resize_new.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_resize_overwrite.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_resize_resized.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_resize_thumbnails.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_select_hovered.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_select_selected.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_select_unselected.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_view_list.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_file_view_thumbnails.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_collapse.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_copied_from_basket.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_delete.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_expand.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_loading.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_menu.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_moved_from_basket.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_new.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_pane.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_rename.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_folder_select.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_interface.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_menu_arrow.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_menu_arrows.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_resize_lock.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_resize_reset.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_resize_unlock.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_settings.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_status_empty.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_status_file.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_status_folder.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_toolbar.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_toolbar_help.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_toolbar_refresh.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_upload_01.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_upload_03.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_upload_04.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_upload_09.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\images\CKFinder_upload_10.png" />
+    <Content Include="LibCKEditor\ckfinder\help\files\other\help.css" />
+    <Content Include="LibCKEditor\ckfinder\help\files\other\help.js" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\001.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\002.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\003.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\004.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\005.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\006.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\007.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\008.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\009.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\010.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\011.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\012.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\013.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\header.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\001.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\002.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\003.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\004.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\005.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\006.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\007.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\008.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\009.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\010.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\011.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\012.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\013.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\014.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\015.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\016.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\017.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\018.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\019.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\images\020.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\license.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\suggestions.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\files\toc.html" />
+    <Content Include="LibCKEditor\ckfinder\help\fi\index.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\001.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\002.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\003.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\004.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\005.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\006.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\007.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\008.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\009.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\010.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\011.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\012.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\013.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\header.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\001.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\002.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\003.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\004.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\005.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\006.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\007.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\008.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\009.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\010.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\011.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\012.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\013.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\014.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\015.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\016.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\017.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\018.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\019.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\images\020.gif" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\license.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\suggestions.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\files\toc.html" />
+    <Content Include="LibCKEditor\ckfinder\help\lt\index.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\001.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\002.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\003.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\004.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\005.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\006.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\007.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\008.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\009.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\010.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\011.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\012.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\013.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\014.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\015.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\header.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\license.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\suggestions.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\files\toc.html" />
+    <Content Include="LibCKEditor\ckfinder\help\pl\index.html" />
+    <Content Include="LibCKEditor\ckfinder\install.txt" />
+    <Content Include="LibCKEditor\ckfinder\lang\bg.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\ca.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\cs.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\cy.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\da.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\de.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\el.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\en.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\eo.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\es-mx.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\es.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\et.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\fa.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\fi.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\fr.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\gu.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\he.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\hi.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\hr.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\hu.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\it.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\ja.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\lt.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\lv.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\nb.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\nl.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\nn.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\no.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\pl.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\pt-br.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\ro.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\ru.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\sk.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\sl.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\sr.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\sv.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\tr.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\vi.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\zh-cn.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\zh-tw.js" />
+    <Content Include="LibCKEditor\ckfinder\lang\_translationstatus.txt" />
+    <Content Include="LibCKEditor\ckfinder\license.txt" />
+    <Content Include="LibCKEditor\ckfinder\plugins\dummy\lang\en.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\dummy\lang\pl.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\dummy\plugin.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\lib\codemirror.css" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\lib\codemirror.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\mode\clike\clike.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\mode\css\css.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\mode\javascript\javascript.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\mode\xml\xml.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\plugin.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\flashupload\flash\Uploader.swf" />
+    <Content Include="LibCKEditor\ckfinder\plugins\flashupload\Uploader.html" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\colorbox.css" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\border.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\controls.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderBottomCenter.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderBottomLeft.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderBottomRight.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderMiddleLeft.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderMiddleRight.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderTopCenter.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderTopLeft.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\ie6\borderTopRight.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\loading.gif" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\loading_background.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\images\overlay.png" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\jquery.colorbox-min.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\jquery.min.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\gallery\colorbox\license.txt" />
+    <Content Include="LibCKEditor\ckfinder\plugins\imageresize\images\mini.gif" />
+    <Content Include="LibCKEditor\ckfinder\plugins\imageresize\plugin.js" />
+    <Content Include="LibCKEditor\ckfinder\plugins\watermark\logo.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\app.css" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\host.css" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\ckffolder.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\ckffolderopened.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\ckfminus.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\ckfnothumb.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\ckfplus.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\ai.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\avi.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\bmp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\cs.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\default.icon.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\dll.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\doc.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\docx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\exe.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\fla.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\gif.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\jpg.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\js.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\mdb.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\mp3.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\ogg.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\pdf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\ppt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\pptx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\rdp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\swf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\swt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\txt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\vsd.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\xls.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\xlsx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\xml.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\16\zip.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\ai.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\avi.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\bmp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\cs.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\default.icon.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\dll.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\doc.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\docx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\exe.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\fla.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\gif.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\jpg.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\js.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\mdb.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\mp3.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\ogg.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\ogg.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\pdf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\ppt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\pptx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\rdp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\swf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\swt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\txt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\vsd.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\xls.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\xlsx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\xml.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\icons\32\zip.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\loaders\16x16.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\loaders\32x32.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\spacer.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\sprites.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\sprites_ie6.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\add.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\clear_basket.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\delete.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\download.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\help.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\maximize.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\refresh.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\settings.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\images\toolbar\view.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\richcombo.css" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\skin.js" />
+    <Content Include="LibCKEditor\ckfinder\skins\kama\uipanel.css" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\app.css" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\host.css" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\ckffolder.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\ckffolderopened.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\ckfminus.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\ckfnothumb.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\ckfplus.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\dialog_sides.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\dialog_sides.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\dialog_sides_rtl.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\ai.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\avi.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\bmp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\cs.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\default.icon.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\dll.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\doc.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\docx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\exe.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\fla.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\gif.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\jpg.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\js.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\mdb.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\mp3.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\pdf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\ppt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\pptx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\rdp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\swf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\swt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\txt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\vsd.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\xls.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\xlsx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\xml.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\16\zip.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\ai.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\avi.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\bmp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\cs.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\default.icon.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\dll.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\doc.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\docx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\exe.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\fla.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\gif.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\jpg.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\js.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\mdb.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\mp3.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\pdf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\ppt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\pptx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\rdp.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\swf.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\swt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\txt.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\vsd.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\xls.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\xlsx.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\xml.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\icons\32\zip.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\loaders\16x16.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\loaders\32x32.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\spacer.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\sprites.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\sprites_ie6.png" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\add.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\clear_basket.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\delete.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\download.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\help.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\maximize.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\refresh.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\settings.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar\view.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\images\toolbar_start.gif" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\richcombo.css" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\skin.js" />
+    <Content Include="LibCKEditor\ckfinder\skins\v1\uipanel.css" />
+    <Content Include="LibCKEditor\ckfinder\translations.txt" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="LibCKEditor\ckeditor\CHANGES.md" />
+    <Content Include="LibCKEditor\ckeditor\LICENSE.md" />
+    <Content Include="LibCKEditor\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="LibCKEditor\ckeditor\plugins\scayt\README.md" />
+    <Content Include="LibCKEditor\ckeditor\plugins\SimpleLink\LICENSE" />
+    <Content Include="LibCKEditor\ckeditor\plugins\SimpleLink\README.md" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="LibCKEditor\ckeditor\plugins\wsc\README.md" />
+    <Content Include="LibCKEditor\ckeditor\README.md" />
+    <Content Include="LibCKEditor\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="LibCKEditor\ckeditor\skins\moonocolor\readme.md" />
+    <Content Include="LibCKEditor\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
+    <Content Include="LibCKEditor\ckfinder\userfiles\.htaccess" />
+    <Content Include="Content\assets\icons\font-awesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\assets\icons\font-awesome\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\assets\icons\font-awesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\assets\icons\font-awesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\assets\icons\font-awesome\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\assets\icons\font-awesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\assets\icons\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\assets\icons\themify-icons\fonts\themify.woff" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap-theme.css.map" />
+    <Content Include="Content\assets\node_modules\datetime-picker\css\bootstrap.css.map" />
+    <Content Include="Content\assets\node_modules\datetime-picker\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\node_modules\datetime-picker\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\node_modules\datetime-picker\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assets\node_modules\datetime-picker\js\jquery-1.9.0.min.map" />
+    <Content Include="Content\assets\node_modules\dropify\dist\fonts\dropify.woff" />
+    <Content Include="Content\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\lib.client\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\lib.client\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\lib.client\fonts\ionicons.ttf" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons.woff" />
+    <Content Include="fonts\Linearicons-Free.ttf" />
+    <Content Include="fonts\Linearicons-Free.woff" />
+    <Content Include="fonts\Linearicons-Free.woff2" />
+    <Content Include="fonts\plaza-icon.ttf" />
+    <Content Include="fonts\plaza-icon.woff" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Chart.bundle.js" />
+    <Content Include="Scripts\Chart.bundle.min.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\UserManagement\Index.cshtml" />
+    <Content Include="Views\Shared\_breadcrumb.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\UserManagement\Edit.cshtml" />
+    <Content Include="Views\UserManagement\New.cshtml" />
+    <Content Include="Views\UserManagement\SignIn.cshtml" />
+    <Content Include="Views\UserManagement\_Form.cshtml" />
+    <Content Include="Views\ReportManagement\Index.cshtml" />
+    <Content Include="Views\ReportManagement\report.cshtml" />
+    <Content Include="Views\CategoryManagement\Index.cshtml" />
+    <Content Include="Views\CategoryManagement\_Form.cshtml" />
+    <Content Include="Views\CategoryManagement\Edit.cshtml" />
+    <Content Include="Views\CategoryManagement\New.cshtml" />
+    <Content Include="Views\VendorManagement\Index.cshtml" />
+    <Content Include="Views\CustomerManagement\Index.cshtml" />
+    <Content Include="Views\CustomerManagement\_Form.cshtml" />
+    <Content Include="Views\CustomerManagement\Edit.cshtml" />
+    <Content Include="Views\CustomerManagement\New.cshtml" />
+    <Content Include="Views\VendorManagement\_Form.cshtml" />
+    <Content Include="Views\VendorManagement\Edit.cshtml" />
+    <Content Include="Views\VendorManagement\New.cshtml" />
+    <Content Include="Views\StockManagement\Index.cshtml" />
+    <Content Include="Views\StockManagement\Edit.cshtml" />
+    <Content Include="Views\StockManagement\_Form.cshtml" />
+    <Content Include="Views\StockManagement\New.cshtml" />
+    <Content Include="Views\InWarehouseManagement\_Form.cshtml" />
+    <Content Include="Views\InWarehouseManagement\Edit.cshtml" />
+    <Content Include="Views\InWarehouseManagement\Index.cshtml" />
+    <Content Include="Views\InWarehouseManagement\New.cshtml" />
+    <Content Include="Views\InWarehouseManagement\_ItemStock.cshtml" />
+    <Content Include="Views\OutWarehouseManagement\_Form.cshtml" />
+    <Content Include="Views\OutWarehouseManagement\_ItemStock.cshtml" />
+    <Content Include="Views\OutWarehouseManagement\Edit.cshtml" />
+    <Content Include="Views\OutWarehouseManagement\Index.cshtml" />
+    <Content Include="Views\OutWarehouseManagement\New.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{E3E95087-2880-4E7F-9BB2-9A5444489BFC}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{ce6e4e30-8d72-4e32-9d53-824758b692a2}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{8898275A-5A57-4263-8089-ED628EA7C30F}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62914</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44339/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    //var UserInfo = UserServices.GetInfoCustomer();
+}
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+@model List<DTO.Warehouse.OutWarehouseDTO>
+<div class="account-management">
+    @Html.Partial("_breadcrumb", new Dictionary<string, string>
+       { { "Home", "Home" }, { "OutWarehouseManagement", "Quản lý xuất kho" } }, new ViewDataDictionary(ViewData) { { "mHref", Url.Action("New", "OutWarehouseManagement") }, { "mShowButton", "true" } })
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive m-t-40">
+                        <table id="config-table" class="table display table-bordered table-striped no-wrap">
+                            <thead>
+                                <tr>
+                                    <th style="max-width:20px !important;">No.</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Khách hàng</th>
+                                    <th style="width: 10%">Hóa đơn</th>
+                                    <th style="width:5%;">Tùy chỉnh</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    var No = 0;
+                                    foreach (var item in Model)
+                                    {
+                                        No = No + 1;
+                                        <tr>
+                                            <td>@No</td>
+                                            <td>@item.CreateAt.ToString("dd-MM-yyyy hh:mm")</td>
+                                            <td>@item.CustomerName</td>
+                                            <td>
+                                                @if (item.Status == (int)EnumCommon.EWarehouseStatus.Inprocessing)
+                                                {
+                                                    <a href="@Url.Action("CreateSell","OutWarehouseManagement", new { Id = item.Id })" class="btn btn-outline-success btn-success">
+                                                        <label class="btn label label-success">Lên hóa đơn</label>
+                                                    </a>
+                                                    <a href="@Url.Action("Canceled","OutWarehouseManagement", new { Id = item.Id })" class="btn btn-outline-danger btn-danger">
+                                                        <label class="btn label label-danger">Hủy lên hóa đơn</label>
+                                                    </a>
+                                                }
+                                                else if (item.Status == (int)EnumCommon.EWarehouseStatus.Approved)
+                                                {
+                                                    <label class="label label-info">Đã lên hóa đơn</label>
+                                                }
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group-2 pull-right">
+                                                    <a href="@Url.Action("Edit","OutWarehouseManagement", new { Id = item.Id })" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Cập nhật thông tin user">
+                                                        <i class="fas fa-fw fa-pencil-alt text-success"></i> &nbsp;
+                                                    </a>
+                                                    @if (item.Status == (int)EnumCommon.EWarehouseStatus.Inprocessing)
+                                                    {
+                                                        <a href="javascript:void(0)" onclick="ConfirmSwalMessage('Bạn Có Chắc Muốn Xoá ','', 'Đồng Ý', 'Huỷ','@Url.Action("Destroy", "OutWarehouseManagement", new { Id = item.Id })')" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Xoá thông tin user">
+                                                            <i class="fa fa-fw fa-trash text-danger"></i> &nbsp;
+                                                        </a>
+                                                    }
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#config-table').DataTable({
+        responsive: true
+    });
+</script>

@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+@model DTO.Category.CategoryDTO
+<div class="row form-horizontal form-label-left" style="margin-bottom:15px;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <fieldset style="width: 100%">
+                    <legend>
+                        THÔNG TIN CHUNG
+                    </legend>
+                    <div class="first-step-group-criteria" style="padding-top:10px; margin-bottom: 10px;">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>Tên nhóm vật tư</label>
+                                        @Html.HiddenFor(model => model.Id)
+                                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Tên nhóm vật tư", @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.Name, null, new { @class = "label label-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="text-right">
+                    <a href="@Url.Action("Index","CategoryManagement")" class="btn btn-outline-secondary">Hủy</a>
+                    <button class="btn btn-outline-primary" type="submit">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btn-change-image").on("click", function () {
+            $("#PictureUpload").click();
+        });
+
+        $("#PictureUpload").on("change", function () {
+            PreviewImage(this, 'btn-change-image')
+        })
+        $("#TeacherId").select2({
+            placeholder: "Chọn giáo viên chủ nhiệm",
+            allowClear: true
+        });
+    })
+    function PreviewImage(e, previewElementID) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(e.files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById(previewElementID).src = oFREvent.target.result;
+        };
+    };
+</script>

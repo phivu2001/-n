@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    //var UserInfo = UserServices.GetInfoCustomer();
+}
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+@model List<DTO.Stock.StockDTO>
+<div class="account-management">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-12" style="text-align: right">
+                        <label style="padding: 10px" class="label label-info"> @Html.ActionLink("In  PDF", "PrintPartialViewToPdf")</label>
+                    </div>
+                    <div class="table-responsive m-t-40">
+                        <table id="config-table" class="table display table-bordered table-striped no-wrap">
+                            <thead>
+                                <tr>
+                                    <th style="max-width:20px !important; width: 15%">No.</th>
+                                    <th width="15%">Mã vật tư</th>
+                                    <th width="15%">Tên vật tư</th>
+                                    <th width="15%">Giá</th>
+                                    <th width="15%">Số lượng</th>
+                                    <th width="15%">Nhóm vật tư</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    var No = 0;
+                                    foreach (var item in Model)
+                                    {
+                                        No = No + 1;
+                                        <tr>
+                                            <td>@No</td>
+                                            <td>@item.Code</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Price</td>
+                                            <td>@item.Qty</td>
+                                            <td>@item.CategoryName</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#config-table').DataTable({
+        responsive: true
+    });
+</script>

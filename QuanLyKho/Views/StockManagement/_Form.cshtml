@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+@using QuanLyCTDT.Commons
+@using QuanLyCTDT.Extentions
+@model DTO.Stock.StockDTO
+<div class="row form-horizontal form-label-left" style="margin-bottom:15px;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <fieldset style="width: 100%">
+                    <legend>
+                        THÔNG TIN CHUNG
+                    </legend>
+                    <div class="first-step-group-criteria" style="padding-top:10px; margin-bottom: 10px;">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <div>
+                                    <div class="col-md-4 mb-3 text-center">
+                                        <div class="form-row">
+                                            <div class="col-md-12 mb-3">
+                                                @if (string.IsNullOrEmpty(Model.ImageURL))
+                                                {
+                                                    <img src="~/Images/DefaultUser.jpg" height="300" width="300" style="box-shadow: 0px 0px 5px #676363; cursor:pointer" class="img-circle" id="btn-change-image" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="@Url.Content(Model.ImageURL)" height="300" width="300" style="box-shadow: 0px 0px 5px #676363; cursor:pointer" class="img-circle" id="btn-change-image" />
+                                                }
+                                                @Html.HiddenFor(model => model.ImageURL)
+                                                @Html.TextBoxFor(model => model.PictureUpload, new { @type = "file", @class = "hidden", @accept = ".png, .jpg, .jpeg" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>Tên vật tư</label>
+                                        @Html.HiddenFor(model => model.Id)
+                                        @Html.HiddenFor(model => model.Code)
+                                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Tên vật tư", @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.Name, null, new { @class = "label label-danger" })
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label>Nhóm vật tư</label>
+                                        @Html.DropDownListFor(model => model.CategoryId,
+                                                         new SelectList(Model.Categorys, "Id", "Name", Model.CategoryId), null,
+                                                         new
+                                                         {
+                                                             @class = "form-control cc-select2-gender custom-select",
+                                                             @style = "width:100%;",
+                                                             @id = "CategoryId"
+                                                         })
+                                        @Html.ValidationMessageFor(model => model.CategoryId, null, new { @class = "label label-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>Giá 123</label>
+                                        @Html.TextBoxFor(model => model.Price, new { @class = "form-control", placeholder = "Giá", @autocomplete = "off", @type = "number" })
+                                        @Html.ValidationMessageFor(model => model.Price, null, new { @class = "label label-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="text-right">
+                    <a href="@Url.Action("Index","StockManagement")" class="btn btn-outline-secondary">Hủy</a>
+                    <button class="btn btn-outline-primary" type="submit">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btn-change-image").on("click", function () {
+            $("#PictureUpload").click();
+        });
+
+        $("#PictureUpload").on("change", function () {
+            PreviewImage(this, 'btn-change-image')
+        })
+        $("#TeacherId").select2({
+            placeholder: "Chọn giáo viên chủ nhiệm",
+            allowClear: true
+        });
+    })
+    function PreviewImage(e, previewElementID) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(e.files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById(previewElementID).src = oFREvent.target.result;
+        };
+    };
+</script>
